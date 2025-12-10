@@ -22,7 +22,7 @@ const FotinosNavBar = ({ activeLink, setActiveLink }) => {
         { name: 'About Us', path: '/about' },
         { name: 'Service', path: '/service' },
         { name: 'Case Studies', path: '/cases' },
-        // { name: 'Contact Us', path: '/contact' },
+        { name: 'Contact Us', path: '/contact' },
     ];
 
     const navigate = useNavigate();
@@ -137,7 +137,6 @@ const FotinosNavBar = ({ activeLink, setActiveLink }) => {
                         </Box>
                     </Box>
 
-                    {/* ✅ MOBILE MENU */}
                     <Menu
                         id="menu-appbar"
                         anchorEl={anchorEl}
@@ -145,29 +144,32 @@ const FotinosNavBar = ({ activeLink, setActiveLink }) => {
                         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                         open={isMenuOpen}
                         onClose={handleMenuClose}
-                        sx={{ display: { md: 'none', } }}
+                        sx={{ display: { md: 'none' } }}
                     >
-                        {navItems.map((item) => (
-                            <MenuItem
-                                key={item.name}
-                                onClick={() => handleLinkClick(item)}  // ✅ FIXED
-                                sx={{
-                                    color:
-                                        activeLink === item.name
-                                            ? FOTINOS_ORANGE
-                                            : FOTINOS_TEXT,
-                                    fontWeight: 600,
-                                }}
-                            >
-                                {item.name}
-                            </MenuItem>
-                        ))}
+                        {navItems
+                            .filter((item) => item.name !== 'Contact Us')
+                            .map((item) => (
+                                <MenuItem
+                                    key={item.name}
+                                    onClick={() => handleLinkClick(item)}
+                                    sx={{
+                                        color:
+                                            activeLink === item.name
+                                                ? FOTINOS_ORANGE
+                                                : FOTINOS_TEXT,
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    {item.name}
+                                </MenuItem>
+                            ))}
 
-                        {/* ✅ MOBILE CONTACT BUTTON */}
+                        {/* ✅ Mobile CTA Contact Button ONLY */}
                         <MenuItem sx={{ p: 2 }}>
                             <ContactUsButton sxProps={{ width: '100%' }} />
                         </MenuItem>
                     </Menu>
+
                 </Toolbar>
             </AppBar>
 

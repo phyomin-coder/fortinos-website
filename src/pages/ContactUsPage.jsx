@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Box, Typography } from '@mui/material';
+import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
+    const formRef = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            'service_n85xdfh',     // ✅ replace
+            'template_rtqc945',    // ✅ replace
+            formRef.current,
+            'zFe8r5mSe80ZJ1HgV'      // ✅ replace
+        ).then(
+            (result) => {
+                alert('Email sent successfully!');
+                formRef.current.reset();
+            },
+            (error) => {
+                alert('Failed to send email');
+                console.log(error.text);
+            }
+        );
+    };
+
     return (
         <Box
             sx={{
@@ -14,140 +37,81 @@ const ContactUs = () => {
                 py: { xs: 6, sm: 8 },
             }}
         >
-            {/* Wrapper */}
             <Box sx={{ width: '100%', maxWidth: 600 }}>
 
                 {/* Header */}
                 <Box sx={{ textAlign: 'center', color: '#fff', mb: 4 }}>
-                    <Typography sx={{ fontSize: { xs: '1rem' }, fontWeight: 700, mb: 1 }}>
-                        CONTACT US
-                    </Typography>
-                    <Typography sx={{ fontSize: { xs: '1rem', sm: '1.5rem', md: '1.5rem', lg: '2rem' }, fontWeight: 800 }}>
+                    <Typography sx={{ fontWeight: 700 }}>CONTACT US</Typography>
+                    <Typography sx={{ fontWeight: 800, fontSize: '1.5rem' }}>
                         We are here to help you
-                        <Box component={'br'}
-                            sx={{ display: { xs: 'block', sm: 'block', md: 'block', lg: 'block' } }} />
-                        transform your business
                     </Typography>
                 </Box>
 
-                {/* Form Card */}
+                {/* Form */}
                 <Box
+                    component="form"
+                    ref={formRef}
+                    onSubmit={sendEmail}
                     sx={{
                         backgroundColor: '#fff',
                         borderRadius: 3,
-                        p: { xs: 3, sm: 4, md: 5, lg: 10 },
+                        p: 4,
                         boxShadow: '0px 10px 30px rgba(0,0,0,0.15)',
                     }}
                 >
-                    <Typography
-                        sx={{
-                            color: '#F07E2C',
-                            fontWeight: 800,
-                            textAlign: 'center',
-                            fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.5rem', lg: '2rem' },
-                            mb: 3,
-                        }}
-                    >
+                    <Typography sx={{ color: '#F07E2C', fontWeight: 800, textAlign: 'center', mb: 3 }}>
                         Get in touch with us
                     </Typography>
 
-                    <Typography
-                        sx={{
-                            textAlign: 'center',
-                            fontSize: { xs: '0.8rem', sm: '0.8rem', md: '0.8rem', lg: '0.9rem' },
-                            color: '#000000',
-                            mb: 3,
-                        }}
-                    >
-                        Share some details about your needs and we'll be in touch to discuss.
-                    </Typography>
-
                     {/* Name */}
-                    <Typography sx={{ fontSize: 16, mb: 0.5 }}>Name</Typography>
+                    <Typography>Name</Typography>
                     <Box
                         component="input"
-                        placeholder="Name"
-                        sx={{
-                            width: '100%',
-                            height: 50,
-                            border: '1px solid #E0E0E0',
-                            borderRadius: 1,
-                            px: 1.5,
-                            mb: 2,
-                        }}
+                        name="name"
+                        required
+                        sx={{ width: '100%', height: 50, border: '1px solid #E0E0E0', mb: 2, px: 1.5 }}
                     />
 
                     {/* Email */}
-                    <Typography sx={{ fontSize: 16, mb: 0.5 }}>Email</Typography>
+                    <Typography>Email</Typography>
                     <Box
                         component="input"
-                        placeholder="Email"
-                        sx={{
-                            width: '100%',
-                            height: 50,
-                            border: '1px solid #E0E0E0',
-                            borderRadius: 1,
-                            px: 1.5,
-                            mb: 2,
-                        }}
+                        type="email"
+                        name="email"
+                        required
+                        sx={{ width: '100%', height: 50, border: '1px solid #E0E0E0', mb: 2, px: 1.5 }}
                     />
 
                     {/* Phone */}
-                    <Typography sx={{ fontSize: 16, mb: 0.5 }}>Phone number</Typography>
+                    <Typography>Phone</Typography>
                     <Box
                         component="input"
-                        placeholder="Phone number"
-                        sx={{
-                            width: '100%',
-                            height: 50,
-                            border: '1px solid #E0E0E0',
-                            borderRadius: 1,
-                            px: 1.5,
-                            mb: 2,
-                        }}
+                        name="phone"
+                        sx={{ width: '100%', height: 50, border: '1px solid #E0E0E0', mb: 2, px: 1.5 }}
                     />
 
                     {/* Company */}
-                    <Typography sx={{ fontSize: 16, mb: 0.5 }}>
-                        Company/business name
-                    </Typography>
+                    <Typography>Company</Typography>
                     <Box
                         component="input"
-                        placeholder="Company/business name"
-                        sx={{
-                            width: '100%',
-                            height: 50,
-                            border: '1px solid #E0E0E0',
-                            borderRadius: 1,
-                            px: 1.5,
-                            mb: 2,
-                        }}
+                        name="company"
+                        sx={{ width: '100%', height: 50, border: '1px solid #E0E0E0', mb: 2, px: 1.5 }}
                     />
 
                     {/* Message */}
-                    <Typography sx={{ fontSize: 16, mb: 0.5 }}>
-                        What would you like to discuss?
-                    </Typography>
+                    <Typography>Message</Typography>
                     <Box
                         component="textarea"
-                        placeholder="Enter message"
+                        name="message"
                         rows={4}
-                        sx={{
-                            width: '100%',
-                            height: 140,          // ✅ FIXED HEIGHT (px)
-                            border: '1px solid #E0E0E0',
-                            borderRadius: 1,
-                            px: 1.5,
-                            py: 1,
-                            mb: 3,
-                            resize: 'none',      // ✅ prevents weird resizing
-                        }}
+                        required
+                        sx={{ width: '100%', border: '1px solid #E0E0E0', mb: 3, px: 1.5, py: 1 }}
                     />
 
-
-                    {/* Submit Button */}
+                    {/* Button */}
                     <Box
                         component="button"
+                        type="submit"
                         sx={{
                             width: '100%',
                             height: 50,
@@ -157,9 +121,6 @@ const ContactUs = () => {
                             borderRadius: 3,
                             fontWeight: 700,
                             cursor: 'pointer',
-                            '&:hover': {
-                                backgroundColor: '#E56F1F',
-                            },
                         }}
                     >
                         Submit
