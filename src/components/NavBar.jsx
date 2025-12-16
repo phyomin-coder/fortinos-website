@@ -9,7 +9,7 @@ import {
     MenuItem,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import logo from '../assets/images/fotinos-logo.png';
 
 const FOTINOS_ORANGE = '#F07E2C';
@@ -95,7 +95,9 @@ const FotinosNavBar = ({ activeLink, setActiveLink }) => {
                 >
                     {/* LOGO */}
                     <Box>
-                        <img src={logo} alt="Logo" width={80} />
+                        <Link to="/">
+                            <img src={logo} alt="Logo" width={80} />
+                        </Link>
                     </Box>
 
                     {/* ✅ DESKTOP NAV */}

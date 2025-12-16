@@ -70,7 +70,7 @@ const CaseStudyDetail = () => {
                             {/* IMAGE */}
                             <Box
                                 component="img"
-                                src={caseImage}
+                                src={caseDetail.image}
                                 alt="case"
                                 sx={{
                                     width: { xs: '100%', sm: 600, md: 700 },

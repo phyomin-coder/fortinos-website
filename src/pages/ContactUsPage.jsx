@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Box, Typography } from '@mui/material';
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
     const formRef = useRef();

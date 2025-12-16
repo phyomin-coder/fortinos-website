@@ -45,8 +45,8 @@ const CasePage = () => {
 
                 {/* Cards */}
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-                    {caseStudyData.map((item, index) => (
-                        <CaseStudyCard key={index} title={item.title} description={item.description} image={item.image} />
+                    {caseStudyData.map((item) => (
+                        <CaseStudyCard key={item.id} id={item.id} title={item.title} description={item.description} image={item.image} />
                     ))}
                 </Box>
             </Box>
