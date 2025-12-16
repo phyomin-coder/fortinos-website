@@ -39,7 +39,7 @@ const CaseStudies = () => {
             {/* CTA Button */}
             <Box sx={{ textAlign: 'center', mt: 6 }}>
                 <Button
-                    onClick={() => navigate('/about')}
+                    onClick={() => navigate('/cases')}
                     variant="contained"
                     size="large"
                     sx={{
