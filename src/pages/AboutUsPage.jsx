@@ -45,7 +45,7 @@ const AboutUsPage = () => {
                                 fontSize: { xs: '0.9rem', sm: '1rem', md: '1.05rem', lg: '1.1rem', xl: '1.15rem' },
                             }}
                         >
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the printing industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                            We help organizations solve business challenges by designing and delivering intelligent solutions using the Microsoft Power Platform. Through Power Apps, Power Automate, Power BI, and Power Virtual Agents, we simplify complex processes, reduce manual work, and enable teams to work smarter and faster. Our focus is on creating secure, scalable, and user-friendly solutions that drive real business value.
                         </Typography>
 
                         {/* Image only for xs and sm between heading and missions/visions */}
@@ -89,7 +89,7 @@ const AboutUsPage = () => {
                                         lineHeight: 1.6,
                                     }}
                                 >
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan.
+                                    Our mission is to deliver efficient, reliable, and future-ready Power Platform solutions that streamline operations and enhance productivity. We are committed to understanding our clients’ needs, providing expert guidance, and building solutions that support long-term growth, automation, and data-driven success.
                                 </Typography>
                             </Box>
 
@@ -112,7 +112,7 @@ const AboutUsPage = () => {
                                         lineHeight: 1.6,
                                     }}
                                 >
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan.
+                                    Our vision is to empower businesses of all sizes to achieve digital excellence through low-code innovation. We aim to be a trusted Power Platform partner that enables organizations to transform ideas into impactful solutions, improve decision-making, and stay agile in a rapidly evolving digital world.
                                 </Typography>
                             </Box>
                         </Box>
